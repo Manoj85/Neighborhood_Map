@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Neighbourhood Map</title>
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <div class="container full-screen">
+      <div class="row full-screen row-full-screen">
+        <div class="col-xs-12 col-sm-10 col-full-screen">
+          <div id="map"></div>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-full-screen">
+          <h3 class="text-center">Places - New Jersey</h3>
+          <div class="input-group ">
+            <span class="input-group-addon" id="s-input">Filter By</span>
+            <input class="controls form-control" type="search" placeholder="Featured Places ..." data-bind="textInput: filtertext">
+          </div>
+          <div class="list-group" data-bind="foreach: places">
+            <button type="button" class="list-group-item" data-bind="visible: visible, text: name, click: $parent.displayPlace"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/lib/jquery-3.1.1.min.js"></script>
+    <script src="./js/lib/knockout.min.js"></script>
+    <script src="./js/lib/oauth-signature.min.js"></script>
+    <script src='./js/places.js'></script>
+    <script src='./js/app.js'></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmIA-jeluyX3ieqh9BQ6yxR6MYqUS-HJU&callback=initMap" onerror="googleError()"></script>
+
+  </body>
+</html>
